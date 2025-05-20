@@ -1,4 +1,4 @@
-/* import React from "react";
+import React from "react";
 import { assets } from "@/assets/assets";
 import Image from "next/image";
 
@@ -53,4 +53,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;*/
+export default Footer;
