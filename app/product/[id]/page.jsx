@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { assets } from "@/assets/assets";
 import ProductCard from "@/components/ProductCard";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import Loading from "@/components/Loading";
@@ -85,9 +84,9 @@ const Product = () => {
                         {productData.description}
                     </p>
                     <p className="text-3xl font-medium mt-6">
-                        ${productData.offerPrice}
+                        ₱{productData.offerPrice}
                         <span className="text-base font-normal text-gray-800/60 line-through ml-2">
-                            ${productData.price}
+                            ₱{productData.price}
                         </span>
                     </p>
                     <hr className="bg-gray-600 my-6" />
@@ -135,7 +134,6 @@ const Product = () => {
                 </button>
             </div>
         </div>
-        <Footer />
     </>
     ) : <Loading />
 };

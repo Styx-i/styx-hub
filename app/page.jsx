@@ -6,7 +6,6 @@ import Banner from "@/components/Banner";
 import NewsLetter from "@/components/NewsLetter";
 import FeaturedProduct from "@/components/FeaturedProduct";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 const Home = () => {
   return (
@@ -19,7 +18,6 @@ const Home = () => {
         <Banner />
         <NewsLetter />
       </div>
-      <Footer />
     </>
   );
 };

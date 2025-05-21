@@ -1,7 +1,6 @@
 'use client'
 import ProductCard from "@/components/ProductCard";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { useAppContext } from "@/context/AppContext";
 
 const AllProducts = () => {
@@ -20,7 +19,6 @@ const AllProducts = () => {
                     {products.map((product, index) => <ProductCard key={index} product={product} />)}
                 </div>
             </div>
-            <Footer />
         </>
     );
 };
