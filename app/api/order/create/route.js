@@ -1,4 +1,5 @@
 
+import connectDB from "@/config/db";
 import { inngest } from "@/config/inngest";
 import Product from "@/models/product";
 import User from "@/models/User";
@@ -9,7 +10,7 @@ export async function POST(request) {
   try {
     const { userId } = getAuth(request);
     const { address, items } = await request.json();
-
+    await connectDB()
     if (!address || items.length === 0) {
       return NextResponse.json({
         success: false,
@@ -18,7 +19,7 @@ export async function POST(request) {
     }
     const amount = await items.reduce(async (acc, item) => {
       const product = await Product.findById(item.product);
-      return acc + product.offerPrice * item.quantity;
+      return await acc + product.offerPrice * item.quantity;
     }, 0)
 
     await inngest.send({
@@ -46,4 +47,5 @@ export async function POST(request) {
       message: error.message,
     });
   }
+  
 }
