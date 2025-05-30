@@ -24,11 +24,11 @@ export async function GET(request){
 
         Address.length
 
-        const order = await Order.find({}).populate('address items.product')
+        const orders = await Order.find({}).populate('address items.product')
 
         return NextResponse.json({
             success: true,
-            order
+            orders
         })
     } catch (error) {
         return NextResponse.json({
