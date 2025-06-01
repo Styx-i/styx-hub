@@ -10,7 +10,7 @@ const HeaderSlider = () => {
       offer: "Limited Time Offer 25% Off All Sneakers",
       buttonText1: "Shop now",
       buttonText2: "Find more",
-      imgSrc: assets.ultraboost_image1,
+      imgSrc: assets.nike_dunk_low_image1,
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ const HeaderSlider = () => {
       offer: "Flash Sale - Hurry While Stock Lasts!",
       buttonText1: "Get Yours",
       buttonText2: "Explore Deals",
-      imgSrc: assets.ultraboost_image2,
+      imgSrc: assets.rapidmode_image2,
     },
     {
       id: 3,
@@ -26,7 +26,7 @@ const HeaderSlider = () => {
       offer: "Exclusive Deal 40% Off",
       buttonText1: "Order Now",
       buttonText2: "Learn More",
-      imgSrc: assets.ultraboost_image3,
+      imgSrc: assets.fresh_foam_image3,
     },
   ];
 

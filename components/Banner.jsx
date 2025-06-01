@@ -7,7 +7,7 @@ const Banner = () => {
     <div className="flex flex-col md:flex-row items-center justify-between md:pl-20 py-14 md:py-0 bg-[#E6E9F2] my-16 rounded-xl overflow-hidden">
       <Image
         className="max-w-56"
-        src={assets.ultraboost_image1}
+        src={assets.nbr_image2}
         alt="jbl_soundbox_image"
       />
       <div className="flex flex-col items-center justify-center text-center space-y-2 px-4 md:px-0">
@@ -24,12 +24,12 @@ const Banner = () => {
       </div>
       <Image
         className="hidden md:block max-w-80"
-        src={assets.ultraboost_image2}
+        src={assets.quickstep_image2}
         alt="md_controller_image"
       />
       <Image
         className="md:hidden"
-        src={assets.ultraboost_image3}
+        src={assets.ultrarange_image3}
         alt="sm_controller_image"
       />
     </div>

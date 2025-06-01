@@ -25,11 +25,15 @@ import checkmark from "./checkmark.png";
 import ultraboost_image1 from "./ultraboost_image1.png";
 import ultraboost_image2 from "./ultraboost_image2.png";
 import ultraboost_image3 from "./ultraboost_image3.png";
-import campus00s_image1 from "./campus00s_image1.png"
-import campus00s_image2 from "./campus00s_image2.png"
-import campus00s_image3 from "./campus00s_image3.png"
-
-
+import campus00s_image1 from "./campus00s_image1.png";
+import campus00s_image2 from "./campus00s_image2.png";
+import campus00s_image3 from "./campus00s_image3.png";
+import rapidmode_image2 from "./rapidmode_image2.png";
+import nike_dunk_low_image1 from "./nike_dunk_low_image1.png";
+import fresh_foam_image3 from "./FreshFoam_image3.png";
+import nbr_image2 from "./2002R_image2.png";
+import quickstep_image2 from "./QuickStep_image2.png";
+import ultrarange_image3 from "./UltraRange_image3.png"
 
 export const assets = {
   logo,
@@ -61,7 +65,13 @@ export const assets = {
   ultraboost_image3,
   campus00s_image1,
   campus00s_image2,
-  campus00s_image3
+  campus00s_image3,
+  rapidmode_image2,
+  nike_dunk_low_image1,
+  fresh_foam_image3,
+  nbr_image2,
+  quickstep_image2,
+  ultrarange_image3
 };
 
 export const BagIcon = () => {
