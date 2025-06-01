@@ -51,8 +51,8 @@ const Cart = () => {
                         <div>
                           <div className="rounded-lg overflow-hidden bg-gray-500/10 p-2">
                             <Image
-                              src={product.image[0]}
-                              alt={product.name}
+                              src={product?.image?.[0] ?? assets.product_list_icon}
+                              alt={product?.name ?? 'Product'}
                               className="w-16 h-auto object-cover mix-blend-multiply"
                               width={1280}
                               height={720}
@@ -66,7 +66,7 @@ const Cart = () => {
                           </button>
                         </div>
                         <div className="text-sm hidden md:block">
-                          <p className="text-gray-800">{product.name}</p>
+                          <p className="text-gray-800">{product?.name ?? 'Unknown Product'}</p>
                           <button
                             className="text-xs text-orange-600 mt-1"
                             onClick={() => updateCartQuantity(product._id, 0)}
@@ -75,7 +75,7 @@ const Cart = () => {
                           </button>
                         </div>
                       </td>
-                      <td className="py-4 md:px-4 px-1 text-gray-600">{currency}{product.offerPrice}</td>
+                      <td className="py-4 md:px-4 px-1 text-gray-600">{currency}{product?.offerPrice ?? 0}</td>
                       <td className="py-4 md:px-4 px-1">
                         <div className="flex items-center md:gap-2 gap-1">
                           <button onClick={() => updateCartQuantity(product._id, cartItems[itemId] - 1)}>
@@ -95,7 +95,7 @@ const Cart = () => {
                           </button>
                         </div>
                       </td>
-                      <td className="py-4 md:px-4 px-1 text-gray-600">{currency}{(product.offerPrice * cartItems[itemId]).toFixed(2)}</td>
+                      <td className="py-4 md:px-4 px-1 text-gray-600">{currency}{((product?.offerPrice ?? 0 ) * cartItems[itemId]).toFixed(2)}</td>
                     </tr>
                   );
                 })}
