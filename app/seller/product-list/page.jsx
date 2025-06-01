@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { assets, productsDummyData } from "@/assets/assets";
+import { assets } from "@/assets/assets";
 import Image from "next/image";
 import { useAppContext } from "@/context/AppContext";
 import Loading from "@/components/Loading";
@@ -12,6 +12,12 @@ const ProductList = () => {
 
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 10;
+
+  const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
+  const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
+  const paginatedProducts = products.slice(startIdx, startIdx + ITEMS_PER_PAGE);
 
   const fetchSellerProduct = async () => {
     try {
@@ -62,7 +68,7 @@ const ProductList = () => {
                 </tr>
               </thead>
               <tbody className="text-sm text-gray-500">
-                {products.map((product, index) => (
+                {paginatedProducts.map((product, index) => (
                   <tr key={index} className="border-t border-gray-500/20">
                     <td className="md:px-4 pl-2 md:pl-4 py-3 flex items-center space-x-3 truncate">
                       <div className="bg-gray-500/10 rounded p-2">
@@ -102,6 +108,27 @@ const ProductList = () => {
                 ))}
               </tbody>
             </table>
+            <div className="flex justify-center items-center gap-4 py-4">
+              <button
+                onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+                disabled={currentPage === 1}
+                className="px-4 py-2 border rounded disabled:opacity-50"
+              >
+                Previous
+              </button>
+              <span>
+                Page {currentPage} / {totalPages}
+              </span>
+              <button
+                onClick={() =>
+                  setCurrentPage((p) => Math.min(p + 1, totalPages))
+                }
+                disabled={currentPage === totalPages}
+                className="px-4 py-2 border rounded disabled:opacity-50"
+              >
+                Next
+              </button>
+            </div>
           </div>
         </div>
       )}
