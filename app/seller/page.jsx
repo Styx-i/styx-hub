@@ -132,8 +132,6 @@ const AddProduct = () => {
               <option value="Vans">Vans</option>
               <option value="World Balance">World Balance</option>
               <option value="New Balance">New Balance</option>
-              <option value="Accessories">Accessories</option>
-              <option value="Clothes">Clothes</option>
             </select>
           </div>
           <div className="flex flex-col gap-1 w-32">
