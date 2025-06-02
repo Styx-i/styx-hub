@@ -123,7 +123,15 @@ const ProductList = () => {
                           />
                         </button>
                         <button
-                          onClick={() => deleteProduct(product._id)}
+                          onClick={() => {
+                            if (
+                              window.confirm(
+                                "Are you sure you want to delete this product?"
+                              )
+                            ) {
+                              deleteProduct(product._id);
+                            }
+                          }}
                           className="flex items-center gap-1 px-1.5 md:px-3.5 py-2 bg-red-600 text-white rounded-md"
                         >
                           <span className="hidden md:block">Delete</span>
