@@ -37,6 +37,26 @@ const ProductList = () => {
       toast.error(error.message);
     }
   };
+  const deleteProduct = async (productId) => {
+    try {
+      const token = await getToken();
+      setLoading(true);
+      const { data } = await axios.delete("/api/product/seller-list-delete", {
+        headers: { Authorization: `Bearer ${token}` },
+        data: { productId },
+      });
+      if (data.success) {
+        toast.success("Product deleted successfully");
+        setProducts((prev) => prev.filter((p) => p._id !== productId));
+      } else {
+        toast.error(data.message);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     if (user) {
@@ -51,7 +71,7 @@ const ProductList = () => {
       ) : (
         <div className="w-full md:p-10 p-4">
           <h2 className="pb-4 text-lg font-medium">All Product</h2>
-          <div className="flex flex-col items-center max-w-4xl w-full overflow-hidden rounded-md bg-white border border-gray-500/20">
+          <div className="flex flex-col items-center max-w-5xl w-full overflow-hidden rounded-md bg-white border border-gray-500/20">
             <table className=" table-fixed w-full overflow-hidden">
               <thead className="text-gray-900 text-sm text-left">
                 <tr>
@@ -101,6 +121,26 @@ const ProductList = () => {
                             src={assets.redirect_icon}
                             alt="redirect_icon"
                           />
+                        </button>
+                        <button
+                          onClick={() => deleteProduct(product._id)}
+                          className="flex items-center gap-1 px-1.5 md:px-3.5 py-2 bg-red-600 text-white rounded-md"
+                        >
+                          <span className="hidden md:block">Delete</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth={1.5}
+                            stroke="currentColor"
+                            className="w-4 h-4"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M6 18L18 6M6 6l12 12"
+                            />
+                          </svg>
                         </button>
                       </div>
                     </td>
